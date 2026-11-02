@@ -1,0 +1,36 @@
+\documentclass[11pt]{article}
+\usepackage[margin=2.3cm,top=2cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,xcolor}
+\usepackage[colorlinks=true,urlcolor=blue!60!black,linkcolor=blue!60!black]{hyperref}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\repo}{https://github.com/jonaskoeppl/counterexamples-ips}
+% \entrylinks{slug}: links to the PDF, the Markdown digest and the entry folder
+\newcommand{\entrylinks}[1]{\par\smallskip\noindent\small
+  \href{\repo/blob/main/pdf/#1.pdf}{PDF}\enspace$\cdot$\enspace
+  \href{\repo/blob/main/entries/#1/digest.md}{digest (Markdown)}\enspace$\cdot$\enspace
+  \href{\repo/tree/main/entries/#1}{entry folder}\normalsize}
+\newcommand{\entry}[3]{\subsection*{#1\quad #2}\noindent{\small Status: \emph{#3}}\par\smallskip\noindent\ignorespaces}
+\setlength{\parindent}{0pt}
+\title{Counterexamples for interacting particle systems\\[2pt]\large Overview}
+\author{\href{\repo}{\texttt{github.com/jonaskoeppl/counterexamples-ips}}}
+\date{Last updated: 2 November 2026\vspace{-1ex}}
+\begin{document}
+\maketitle
+
+This repository collects counterexamples to plausible statements about interacting particle systems in the setting of Liggett's books, found by humans or with the help of AI systems. Each entry below states the question in one paragraph and links to the full write-up. The status \emph{plausible} means that the argument looks right but has not yet been checked in full by a human.
+
+\entry{0001}{One reversible measure, but a non-reversible stationary measure: exclusion processes}{plausible}
+If an interacting particle system has at least one reversible measure, is every stationary measure reversible? For stochastic Ising models this is the Holley--Stroock question: true in $d\le2$, open in $d\ge3$. For general systems the answer is no. For nearest-neighbour asymmetric simple exclusion on $\Z$, the blocking measures are reversible, while the Bernoulli product measures are stationary but carry a non-zero current and are therefore not reversible. Any positive statement must exclude conservative dynamics of this kind.
+\entrylinks{0001-asep-blocking-vs-product-measures}
+
+\entry{0002}{Symmetric exclusion on two half-spaces of $\Z^3$: a non-reversible stationary measure}{plausible}
+For exchange dynamics on a connected graph of bounded degree, is every stationary measure with finite energy reversible? On recurrent graphs, in particular $\Z^d$ with $d\le2$, the answer is yes, by the conservative analogue of Holley--Stroock. On transient graphs it is no. Join two half-spaces of $\Z^3$ by a single bond: symmetric simple exclusion on this graph has a stationary measure with finite energy whose density tends to different limits $\rho_-<\rho_+$ in the two half-spaces, and the resulting current through the bridge rules out reversibility. Found by ChatGPT Astra-6.
+\entrylinks{0002-sep-two-half-spaces-z3}
+
+\entry{0003}{Directed noise can destroy ergodicity}{plausible}
+Bérard, Dembin and Marêché (arXiv:2510.11424) prove that a monotone ergodic system with $\mathbf 0$ absorbing becomes exponentially ergodic when each site is additionally set to $0$ at rate $\varepsilon$. Can the absorbing state be dropped? No, not even for plain ergodicity. For the Ising-type dynamics with constant rate $+1\to-1$ and rate $(1+\varepsilon)e^{2\beta S_x}$ for $-1\to+1$ (an external field $h=\frac12\log(1+\varepsilon)$), adding the noise is the same as removing the field. For $d\ge2$ and $\beta>\beta_c$ the original dynamics is ergodic, while the perturbed one has both the plus and the minus Gibbs state as reversible measures.
+\entrylinks{0003-directed-noise-cancels-ising-field}
+
+\end{document}

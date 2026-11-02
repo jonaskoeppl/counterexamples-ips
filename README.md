@@ -10,6 +10,17 @@ The aim is to sharpen intuition. A good counterexample shows *why* a plausible s
 
 ---
 
+## Counterexamples
+
+A summary of all entries, one paragraph each with links to the full write-ups, is in [`pdf/overview.pdf`](pdf/overview.pdf).
+
+- **[0001 – One reversible measure, but a non-reversible stationary measure (ASEP on $\mathbb{Z}$)](entries/0001-asep-blocking-vs-product-measures/)** · `plausible` · [PDF](pdf/0001-asep-blocking-vs-product-measures.pdf)  
+  If an IPS has a reversible measure, is every stationary measure reversible? Not for conservative dynamics: for nearest-neighbour asymmetric simple exclusion the blocking measures are reversible, while the Bernoulli product measures are stationary, carry a current, and are not reversible.
+- **[0002 – Symmetric exclusion on two half-spaces of $\mathbb{Z}^3$](entries/0002-sep-two-half-spaces-z3/)** · `plausible` · [PDF](pdf/0002-sep-two-half-spaces-z3.pdf)  
+  Two half-spaces of $\mathbb{Z}^3$ joined by a single bond act as transient reservoirs at different densities. Symmetric exclusion then has a stationary measure with finite energy that carries a current through the bridge and is not reversible, so recurrence cannot be dropped from the conservative version of Holley–Stroock. Found by ChatGPT Astra-6.
+- **[0003 – Directed noise can destroy ergodicity](entries/0003-directed-noise-cancels-ising-field/)** · `plausible` · [PDF](pdf/0003-directed-noise-cancels-ising-field.pdf)  
+  The absorbing state in Bérard–Dembin–Marêché's sharpness theorem cannot be dropped. For an Ising-type dynamics with constant down-rate, directed noise is the same as lowering the external field: an ergodic system at field $h = \tfrac12\log(1+\varepsilon) > 0$ becomes, after adding noise of rate $\varepsilon$, a system at zero field, which for $d \ge 2$, $\beta > \beta_c$ has two stationary measures.
+
 ## What we collect
 
 Each question in this repository is documented in three layers:
@@ -30,8 +41,9 @@ counterexamples-ips/
 │       ├── raw/               # verbatim AI outputs, one file per run
 │       │   └── YYYY-MM-DD_model-name.md
 │       ├── digest.md          # the cleaned-up, verified counterexample
-│       └── followups.md       # questions raised by this entry
-├── pdf/                       # compiled PDF version of each counterexample: NNNN-short-slug.pdf
+│       ├── followups.md       # questions raised by this entry
+│       └── code/              # optional: simulations and figures
+├── pdf/                       # PDF of each counterexample (NNNN-short-slug.pdf) and overview.pdf
 ├── problems/                  # open problems and future directions not yet tied to an entry
 └── templates/                 # templates for question.md, digest.md, followups.md
 ```
@@ -78,7 +90,7 @@ Entry folders are numbered in order of creation (`0001-…`, `0002-…`) and get
 - Notation follows Liggett (1985) unless an entry says otherwise. Configurations are $\eta \in \{0,1\}^S$ (often $S = \mathbb{Z}^d$), flip rates are $c(x,\eta)$, the generator is $\Omega$ (or $L$), the semigroup is $S(t)$, the set of stationary measures is $\mathcal{I}$, and the translation-invariant ones are $\mathcal{S}$.
 - "Ergodic" means: there is a unique stationary measure $\mu$, and $\nu S(t) \to \mu$ weakly for every initial distribution $\nu$ (Liggett's convention). Entries that use a weaker notion must say so.
 - Mathematics is written in GitHub-flavoured Markdown with `$…$` / `$$…$$`. Longer arguments can also go in a LaTeX file in the entry folder, together with the compiled PDF.
-- Each counterexample with status `plausible` or `verified` should also have a PDF version in `pdf/NNNN-short-slug.pdf`, regenerated whenever the digest changes.
+- Each counterexample with status `plausible` or `verified` should also have a PDF version in `pdf/NNNN-short-slug.pdf`, regenerated whenever the digest changes. New entries are added to the list above and to `pdf/overview.tex`, and `pdf/overview.pdf` is rebuilt.
 - Simulation code, if any, goes in `entries/NNNN-…/code/` and should run from a fresh checkout.
 
 ## Possible future directions
@@ -96,6 +108,8 @@ Let $c(x,\eta)$ be the rates of an ergodic spin system, and consider the perturb
 
 Intuition says that noise only helps mixing. This is the intuition we want to test. A related but different phenomenon is Gács' counterexample to the positive rates conjecture (P. Gács, *J. Stat. Phys.* 103, 2001), where non-ergodicity survives all small noise.
 
+First result: noise towards one spin value can destroy ergodicity of a monotone system without absorbing state ([entry 0003](entries/0003-directed-noise-cancels-ising-field/)).
+
 ### 2. Is every stationary measure reversible as soon as one reversible measure exists?
 
 For stochastic Ising models on $\mathbb{Z}^d$ (spin systems that are reversible with respect to the Gibbs measures of a finite-range interaction):
@@ -105,7 +119,7 @@ For stochastic Ising models on $\mathbb{Z}^d$ (spin systems that are reversible 
 
 Whether the second statement holds for $d \ge 3$ is open (see Liggett 1985, Ch. IV). More generally: if an IPS has at least one reversible measure, must every stationary measure be reversible? And under which hypotheses (finite range, strictly positive rates, translation-invariant rates, spin system vs. conservative dynamics)?
 
-Some care is needed even to state this correctly. For instance, for nearest-neighbour asymmetric simple exclusion on $\mathbb{Z}$, the blocking measures are reversible, while the Bernoulli product measures are stationary but not reversible (Liggett 1999, Part III). So any positive statement needs hypotheses that rule out conservative dynamics of this kind. Writing down cases like this, and finding out exactly where the boundary lies, is the purpose of this repository.
+Some care is needed even to state this correctly. For instance, for nearest-neighbour asymmetric simple exclusion on $\mathbb{Z}$, the blocking measures are reversible, while the Bernoulli product measures are stationary but not reversible (Liggett 1999, Part III). So any positive statement needs hypotheses that rule out conservative dynamics of this kind. Writing down cases like this, and finding out exactly where the boundary lies, is the purpose of this repository. See [entry 0001](entries/0001-asep-blocking-vs-product-measures/) (ASEP) and [entry 0002](entries/0002-sep-two-half-spaces-z3/) (a finite-energy example for symmetric exclusion on a transient subgraph of $\mathbb{Z}^3$).
 
 ## Contributing
 

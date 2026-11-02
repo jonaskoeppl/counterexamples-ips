@@ -6,7 +6,7 @@
 2. Copy `templates/` to `entries/NNNN-short-slug/` (next free number, short descriptive slug).
 3. Fill in `question.md`. Add raw AI outputs to `raw/`, one file per run, named `YYYY-MM-DD_model-name.md`.
 4. Add a row to the index in `entries/README.md`.
-5. Once the digest is `plausible` or `verified`, add a PDF version as `pdf/NNNN-short-slug.pdf` (see `pdf/README.md`).
+5. Once the digest is `plausible` or `verified`, add a PDF version as `pdf/NNNN-short-slug.pdf` (see `pdf/README.md`), add the entry to the list in `README.md` and to `pdf/overview.tex`, and rebuild `pdf/overview.pdf`.
 6. If the entry comes from a file in `problems/`, link the entry there.
 
 ## Rules
