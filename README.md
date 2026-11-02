@@ -4,7 +4,6 @@ A collection of **counterexamples for interacting particle systems (IPS)**, in t
 
 - T. M. Liggett, *Interacting Particle Systems*, Springer, 1985 (reprinted 2005).
 - T. M. Liggett, *Stochastic Interacting Systems: Contact, Voter and Exclusion Processes*, Springer, 1999.
-- T. M. Liggett, *Continuous Time Markov Processes: An Introduction*, AMS, 2010.
 
 The aim is to sharpen intuition. A good counterexample shows *why* a plausible statement fails, which hypothesis is doing the work, and what the correct statement might be. Entries can be found by humans or produced with the help of AI systems. Either way, what matters is that a human can read the entry, check it, and come away understanding something.
 
