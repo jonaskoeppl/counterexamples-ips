@@ -1,0 +1,64 @@
+\documentclass[11pt]{article}
+\usepackage[margin=2.7cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{proposition}{Proposition}
+\theoremstyle{remark}\newtheorem*{remark}{Remark}
+\newcommand{\Z}{\mathbb{Z}}
+\title{One reversible measure, but a non-reversible\\ stationary measure: exclusion processes}
+\author{counterexamples-ips, entry 0001}
+\date{Status: \emph{plausible} (not yet checked by a human)\\[2pt] \small Idea and write-up: Claude (Opus 5.5), 2 November 2026}
+\begin{document}
+\maketitle
+
+\paragraph{Question.} Let an interacting particle system on $\{0,1\}^{\Z^d}$ have translation-invariant, finite-range rates. If it has at least one reversible measure, is every stationary measure reversible?
+
+For stochastic Ising models this is the Holley--Stroock question: true for translation-invariant stationary measures in all $d$ (Holley 1971), true for all stationary measures when $d\le 2$ (Holley--Stroock 1977), open for $d\ge3$. In the generality above, the answer is \emph{no}.
+
+\paragraph{Setting.} Nearest-neighbour asymmetric simple exclusion (ASEP) on $\Z$: particles jump right at rate $p$ and left at rate $q$, $p>q>0$, jumps to occupied sites being suppressed:
+\[
+\Omega f(\eta)=\sum_{x\in\Z}\Big(p\,\eta(x)\big(1-\eta(x+1)\big)+q\,\eta(x+1)\big(1-\eta(x)\big)\Big)\big(f(\eta^{x,x+1})-f(\eta)\big).
+\]
+Let $\lambda=p/q>1$.
+
+\begin{proposition}
+For ASEP on $\Z$ with $p>q$:
+\begin{enumerate}
+\item for every $c>0$, the product measure $\mu_c$ with $\mu_c(\eta(x)=1)=\rho_x:=c\lambda^x/(1+c\lambda^x)$ (a \emph{blocking measure}) is reversible;
+\item for every $\rho\in(0,1)$, the Bernoulli product measure $\nu_\rho$ is stationary but not reversible.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(1) For product measures and exclusion dynamics it suffices to check detailed balance on each bond (Liggett 1985, Ch.~VIII): $p\,\rho_x(1-\rho_{x+1})=q\,\rho_{x+1}(1-\rho_x)$. Since $\rho_y/(1-\rho_y)=c\lambda^y$, the ratio $\rho_{x+1}(1-\rho_x)/\bigl(\rho_x(1-\rho_{x+1})\bigr)$ equals $\lambda=p/q$.
+
+(2) Stationarity of $\nu_\rho$ holds for every translation-invariant exclusion process (Liggett 1985, Ch.~VIII). For non-reversibility, let $f(\eta)=\eta(0)(1-\eta(1))$ and $g(\eta)=(1-\eta(0))\eta(1)$. On $\{f=1\}$ we have $g=0$, and the only transition producing $g=1$ is the jump $0\to1$, at rate $p$; all other transitions touching $0$ or $1$ are blocked or lead to $(\eta(0),\eta(1))\in\{(0,0),(1,1)\}$. Hence $f\,\Omega g=pf$, and likewise $g\,\Omega f=qg$, so
+\[
+\int f\,\Omega g\,d\nu_\rho=p\rho(1-\rho)\neq q\rho(1-\rho)=\int g\,\Omega f\,d\nu_\rho .\qedhere
+\]
+\end{proof}
+
+\paragraph{Mechanism.} Reversibility means zero net current across every bond. Under $\nu_\rho$ the current is $(p-q)\rho(1-\rho)>0$: a translation-invariant state with drift transports particles. The blocking measures pile the particles up ($\rho_x\to0$ as $x\to-\infty$, $\rho_x\to1$ as $x\to+\infty$), so that exclusion exactly balances the drift on every bond. Conservation of particles lets both kinds of stationary state coexist in sectors of the state space that the dynamics never connects.
+
+\begin{remark}[Degenerate version]
+For any exclusion process $\delta_{\mathbf 0}$ and $\delta_{\mathbf 1}$ are reversible, so the claim fails for asymmetric exclusion in every dimension. The blocking measures show the failure is not merely due to absorbing configurations.
+\end{remark}
+
+\begin{remark}[Full support, $d\ge2$; sketch]
+On $\Z^2$ let particles jump to $x\pm e_1$ at rates $p,q$ ($p>q$) and to $x\pm e_2$ at rate $r$ each. The product measure with $\rho_x/(1-\rho_x)=\lambda^{x_1}$ satisfies detailed balance on every bond, so it is reversible with full support, while $\nu_\rho$ is stationary and not reversible.
+\end{remark}
+
+\paragraph{Which hypothesis breaks.} The claim must exclude conservative dynamics. In the Holley--Stroock setting the rates are positive spin-flip rates, so there is no conservation law and no decomposition into sectors.
+
+\paragraph{Follow-up questions.} See \texttt{entries/0001-asep-blocking-vs-product-measures/followups.md}.
+
+\begin{thebibliography}{9}\small
+\bibitem{H71} R.~Holley, Free energy in a Markovian model of a lattice spin system, \emph{Comm.\ Math.\ Phys.}\ 23 (1971).
+\bibitem{HS77} R.~Holley, D.~Stroock, In one and two dimensions, every stationary measure for a stochastic Ising model is a Gibbs state, \emph{Comm.\ Math.\ Phys.}\ 55 (1977).
+\bibitem{L76} T.~M.~Liggett, Coupling the simple exclusion process, \emph{Ann.\ Probab.}\ 4 (1976).
+\bibitem{L85} T.~M.~Liggett, \emph{Interacting Particle Systems}, Springer, 1985, Ch.~IV and VIII.
+\bibitem{L99} T.~M.~Liggett, \emph{Stochastic Interacting Systems: Contact, Voter and Exclusion Processes}, Springer, 1999, Part~III.
+\end{thebibliography}
+\end{document}

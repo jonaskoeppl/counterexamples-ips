@@ -1,0 +1,15 @@
+.DS_Store
+# LaTeX build files
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+*.bbl
+*.blg
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
