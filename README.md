@@ -4,7 +4,6 @@ A collection of **counterexamples for interacting particle systems (IPS)**, in t
 
 - T. M. Liggett, *Interacting Particle Systems*, Springer, 1985 (reprinted 2005).
 - T. M. Liggett, *Stochastic Interacting Systems: Contact, Voter and Exclusion Processes*, Springer, 1999.
-- T. M. Liggett, *Continuous Time Markov Processes: An Introduction*, AMS, 2010.
 
 The aim is to sharpen intuition. A good counterexample shows *why* a plausible statement fails, which hypothesis is doing the work, and what the correct statement might be. Entries can be found by humans or produced with the help of AI systems. Either way, what matters is that a human can read the entry, check it, and come away understanding something.
 
@@ -47,7 +46,7 @@ A summary of all entries, one paragraph each with links to the full write-ups, i
 - **[0001 – One reversible measure, but a non-reversible stationary measure (ASEP on $\mathbb{Z}$)](entries/0001-asep-blocking-vs-product-measures/)** · `plausible` · [PDF](pdf/0001-asep-blocking-vs-product-measures.pdf)  
   If an IPS has a reversible measure, is every stationary measure reversible? Not for conservative dynamics: for nearest-neighbour asymmetric simple exclusion the blocking measures are reversible, while the Bernoulli product measures are stationary, carry a current, and are not reversible.
 - **[0002 – Symmetric exclusion on two half-spaces of $\mathbb{Z}^3$](entries/0002-sep-two-half-spaces-z3/)** · `plausible` · [PDF](pdf/0002-sep-two-half-spaces-z3.pdf)  
-  Two half-spaces of $\mathbb{Z}^3$ joined by a single bond act as transient reservoirs at different densities. Symmetric exclusion then has a stationary measure with finite energy that carries a current through the bridge and is not reversible, so recurrence cannot be dropped from the conservative version of Holley–Stroock. Found by ChatGPT Astra-6.
+  Two half-spaces of $\mathbb{Z}^3$ joined by a single bond act as transient reservoirs at different densities. Symmetric exclusion then has a stationary measure with finite energy that carries a current through the bridge and is not reversible, so d=1,2 cannot be dropped from the conservative version of Holley–Stroock.
 - **[0003 – Directed noise can destroy ergodicity](entries/0003-directed-noise-cancels-ising-field/)** · `plausible` · [PDF](pdf/0003-directed-noise-cancels-ising-field.pdf)  
   The absorbing state in Bérard–Dembin–Marêché's sharpness theorem cannot be dropped. For an Ising-type dynamics with constant down-rate, directed noise is the same as lowering the external field: an ergodic system at field $h = \tfrac12\log(1+\varepsilon) > 0$ becomes, after adding noise of rate $\varepsilon$, a system at zero field, which for $d \ge 2$, $\beta > \beta_c$ has two stationary measures.
 
