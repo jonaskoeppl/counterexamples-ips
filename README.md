@@ -8,7 +8,37 @@ A collection of **counterexamples for interacting particle systems (IPS)**, in t
 
 The aim is to sharpen intuition. A good counterexample shows *why* a plausible statement fails, which hypothesis is doing the work, and what the correct statement might be. Entries can be found by humans or produced with the help of AI systems. Either way, what matters is that a human can read the entry, check it, and come away understanding something.
 
+A summary of all entries, one paragraph each with links to the full write-ups, is in [`pdf/overview.pdf`](pdf/overview.pdf).
+
 ---
+
+## Possible future directions
+
+Questions we plan to look at. Entries that already address part of a question are linked under it.
+
+### 1. Does adding noise preserve ergodicity?
+
+Let $c(x,\eta)$ be the rates of an ergodic spin system, and consider the perturbed system with rates $c(x,\eta) + \varepsilon$ (independent spin flips at rate $\varepsilon > 0$, superposed on the original dynamics). Is the perturbed system still ergodic? Variants worth separating:
+
+- attractive vs. non-attractive rates;
+- symmetric noise vs. noise that favours one spin value;
+- uniform-in-$\varepsilon$ statements vs. small/large-$\varepsilon$ statements;
+- the analogous question for exclusion-type or mixed dynamics, and for probabilistic cellular automata.
+
+Intuition says that noise only helps mixing. This is the intuition we want to test. A related but different phenomenon is Gács' counterexample to the positive rates conjecture (P. Gács, *J. Stat. Phys.* 103, 2001), where non-ergodicity survives all small noise.
+
+First result: noise towards one spin value can destroy ergodicity of a monotone system without absorbing state ([entry 0003](entries/0003-directed-noise-cancels-ising-field/)).
+
+### 2. Is every stationary measure reversible as soon as one reversible measure exists?
+
+For stochastic Ising models on $\mathbb{Z}^d$ (spin systems that are reversible with respect to the Gibbs measures of a finite-range interaction):
+
+- Holley (1971): every **translation-invariant** stationary measure is a Gibbs measure, in every dimension;
+- Holley and Stroock (1977): for $d \le 2$, **every** stationary measure is a Gibbs measure, and hence reversible.
+
+Whether the second statement holds for $d \ge 3$ is open (see Liggett 1985, Ch. IV). More generally: if an IPS has at least one reversible measure, must every stationary measure be reversible? And under which hypotheses (finite range, strictly positive rates, translation-invariant rates, spin system vs. conservative dynamics)?
+
+Some care is needed even to state this correctly. For instance, for nearest-neighbour asymmetric simple exclusion on $\mathbb{Z}$, the blocking measures are reversible, while the Bernoulli product measures are stationary but not reversible (Liggett 1999, Part III). So any positive statement needs hypotheses that rule out conservative dynamics of this kind. Writing down cases like this, and finding out exactly where the boundary lies, is the purpose of this repository. See [entry 0001](entries/0001-asep-blocking-vs-product-measures/) (ASEP) and [entry 0002](entries/0002-sep-two-half-spaces-z3/) (a finite-energy example for symmetric exclusion on a transient subgraph of $\mathbb{Z}^3$).
 
 ## Counterexamples
 
@@ -92,34 +122,6 @@ Entry folders are numbered in order of creation (`0001-…`, `0002-…`) and get
 - Mathematics is written in GitHub-flavoured Markdown with `$…$` / `$$…$$`. Longer arguments can also go in a LaTeX file in the entry folder, together with the compiled PDF.
 - Each counterexample with status `plausible` or `verified` should also have a PDF version in `pdf/NNNN-short-slug.pdf`, regenerated whenever the digest changes. New entries are added to the list above and to `pdf/overview.tex`, and `pdf/overview.pdf` is rebuilt.
 - Simulation code, if any, goes in `entries/NNNN-…/code/` and should run from a fresh checkout.
-
-## Possible future directions
-
-Questions we plan to look at. Each one will get its own entry once work starts.
-
-### 1. Does adding noise preserve ergodicity?
-
-Let $c(x,\eta)$ be the rates of an ergodic spin system, and consider the perturbed system with rates $c(x,\eta) + \varepsilon$ (independent spin flips at rate $\varepsilon > 0$, superposed on the original dynamics). Is the perturbed system still ergodic? Variants worth separating:
-
-- attractive vs. non-attractive rates;
-- symmetric noise vs. noise that favours one spin value;
-- uniform-in-$\varepsilon$ statements vs. small/large-$\varepsilon$ statements;
-- the analogous question for exclusion-type or mixed dynamics, and for probabilistic cellular automata.
-
-Intuition says that noise only helps mixing. This is the intuition we want to test. A related but different phenomenon is Gács' counterexample to the positive rates conjecture (P. Gács, *J. Stat. Phys.* 103, 2001), where non-ergodicity survives all small noise.
-
-First result: noise towards one spin value can destroy ergodicity of a monotone system without absorbing state ([entry 0003](entries/0003-directed-noise-cancels-ising-field/)).
-
-### 2. Is every stationary measure reversible as soon as one reversible measure exists?
-
-For stochastic Ising models on $\mathbb{Z}^d$ (spin systems that are reversible with respect to the Gibbs measures of a finite-range interaction):
-
-- Holley (1971): every **translation-invariant** stationary measure is a Gibbs measure, in every dimension;
-- Holley and Stroock (1977): for $d \le 2$, **every** stationary measure is a Gibbs measure, and hence reversible.
-
-Whether the second statement holds for $d \ge 3$ is open (see Liggett 1985, Ch. IV). More generally: if an IPS has at least one reversible measure, must every stationary measure be reversible? And under which hypotheses (finite range, strictly positive rates, translation-invariant rates, spin system vs. conservative dynamics)?
-
-Some care is needed even to state this correctly. For instance, for nearest-neighbour asymmetric simple exclusion on $\mathbb{Z}$, the blocking measures are reversible, while the Bernoulli product measures are stationary but not reversible (Liggett 1999, Part III). So any positive statement needs hypotheses that rule out conservative dynamics of this kind. Writing down cases like this, and finding out exactly where the boundary lies, is the purpose of this repository. See [entry 0001](entries/0001-asep-blocking-vs-product-measures/) (ASEP) and [entry 0002](entries/0002-sep-two-half-spaces-z3/) (a finite-energy example for symmetric exclusion on a transient subgraph of $\mathbb{Z}^3$).
 
 ## Contributing
 
