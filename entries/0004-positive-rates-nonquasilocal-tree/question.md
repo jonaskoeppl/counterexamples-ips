@@ -6,7 +6,9 @@
 
 ## Claim
 
-Consider an interacting particle system with finite local state space and finite-range transition rates that are uniformly bounded away from zero. If $\mu$ is a stationary measure for the IPS, then $\mu$ is necessarily quasilocal.
+Consider an interacting particle system with finite local state space and finite-range transition rates that are uniformly bounded away from zero, with **no forbidden transitions**: every local transition, in particular every single-site change, happens at rate at least $\varepsilon > 0$, so that conservation laws are ruled out. If $\mu$ is a stationary measure for the IPS, then $\mu$ is necessarily quasilocal.
+
+**Why conservation laws must be excluded.** For symmetric simple exclusion on $\mathbb{Z}^d$ (particles move, but are never created or destroyed), every Bernoulli product measure $\nu_\rho$ is stationary. A mixture $\tfrac12\nu_\rho + \tfrac12\nu_{\rho'}$ with $\rho \neq \rho'$ is then stationary but not quasilocal, by the same tail argument as in `digest.md`. So without this condition the claim fails trivially, already on $\mathbb{Z}^d$.
 
 Here $\mu$ is **quasilocal** if its conditional probabilities given the configuration outside finite sets have versions that are continuous in the product topology; equivalently, $\mu$ is consistent with a quasilocal specification. Gibbs measures for absolutely summable interactions are quasilocal.
 

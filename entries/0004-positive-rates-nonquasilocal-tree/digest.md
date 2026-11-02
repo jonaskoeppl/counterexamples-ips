@@ -33,7 +33,7 @@ All 72 rates are positive, the smallest is $\varepsilon_* = 1265009/6511300000 \
 $$\pi^A = \big(\tfrac{23}{100}, \tfrac{14}{100}, \tfrac{63}{100}\big), \qquad \pi^B = \big(\tfrac{19}{100}, \tfrac{31}{100}, \tfrac12\big),$$
 both $\nu^A$ and $\nu^B$ are stationary. Consequently $\mu = \tfrac12 \nu^A + \tfrac12 \nu^B$ is stationary, and $\mu$ is **not quasilocal**: $\mu(\eta_o = 0 \mid \mathcal{F}_{\mathbb{V} \setminus \{o\}})$ has no continuous version.
 
-So the claim in `question.md` is false on the tree, for finite local state space, nearest-neighbour rates, all rates $\ge \varepsilon_* > 0$, and bounded total rates.
+So the claim in `question.md` is false on the tree, for finite local state space, nearest-neighbour rates and bounded total rates. There are no forbidden transitions: every change of the ordered pair on an edge, in particular every single-site change, happens at rate $\ge \varepsilon_* > 0$, so no quantity is conserved.
 
 ## Proof
 

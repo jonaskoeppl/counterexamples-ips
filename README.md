@@ -43,7 +43,7 @@ Some care is needed even to state this correctly. For instance, for nearest-neig
 
 ### 3. Are stationary measures of positive-rate systems quasilocal?
 
-Consider an IPS with finite local state space and finite-range transition rates that are uniformly bounded away from zero. Is every stationary measure $\mu$ necessarily quasilocal? The question is inspired by elliptic regularity: stationary measures are the solutions of $\mathscr{L}^*\mu = 0$, positive rates play the role of uniform ellipticity, and quasilocality the role of regularity.
+Consider an IPS with finite local state space and finite-range transition rates that are uniformly bounded away from zero, with no forbidden transitions (every local transition, in particular every single-site change, is allowed, so conservation laws are ruled out). Is every stationary measure $\mu$ necessarily quasilocal? Without the last condition the answer is trivially no: for symmetric exclusion, a mixture of two Bernoulli measures with different densities is stationary but not quasilocal. The question is inspired by elliptic regularity: stationary measures are the solutions of $\mathscr{L}^*\mu = 0$, positive rates play the role of uniform ellipticity, and quasilocality the role of regularity.
 
 On $\mathbb{Z}^d$ this is open. On the 3-regular tree the answer is no ([entry 0004](entries/0004-positive-rates-nonquasilocal-tree/)), so a proof on $\mathbb{Z}^d$ has to use the geometry of the lattice.
 
@@ -58,7 +58,7 @@ A summary of all entries, one paragraph each with links to the full write-ups, i
 - **[0003 – Directed noise can destroy ergodicity](entries/0003-directed-noise-cancels-ising-field/)** · `plausible` · [PDF](pdf/0003-directed-noise-cancels-ising-field.pdf)  
   The absorbing state in Bérard–Dembin–Marêché's sharpness theorem cannot be dropped. For an Ising-type dynamics with constant down-rate, directed noise is the same as lowering the external field: an ergodic system at field $h = \tfrac12\log(1+\varepsilon) > 0$ becomes, after adding noise of rate $\varepsilon$, a system at zero field, which for $d \ge 2$, $\beta > \beta_c$ has two stationary measures.
 - **[0004 – Positive rates do not force quasilocality (on a tree)](entries/0004-positive-rates-nonquasilocal-tree/)** · `plausible` · [PDF](pdf/0004-positive-rates-nonquasilocal-tree.pdf)  
-  Must a stationary measure of a positive-rate, finite-range IPS be quasilocal? Not on the 3-regular tree: an explicit nearest-neighbour pair-update dynamics with three states and all rates $\ge 1.9 \cdot 10^{-4}$ has two distinct stationary product measures, and their mixture is stationary but not quasilocal. Branching is essential: on $\mathbb{Z}$ such a pair of product measures cannot exist. Found by ChatGPT Astra-6.
+  Must a stationary measure of a finite-range IPS with no forbidden transitions be quasilocal? Not on the 3-regular tree: an explicit nearest-neighbour pair-update dynamics with three states and all rates $\ge 1.9 \cdot 10^{-4}$ has two distinct stationary product measures, and their mixture is stationary but not quasilocal. Branching is essential: on $\mathbb{Z}$ such a pair of product measures cannot exist. Found by ChatGPT Astra-6.
 
 ## What we collect
 

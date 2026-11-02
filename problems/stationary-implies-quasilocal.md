@@ -4,7 +4,9 @@
 
 ## Question
 
-Consider an interacting particle system with finite local state space and finite-range transition rates that are uniformly bounded away from zero. Show that if $\mu$ is a stationary measure for the IPS, then it is necessarily quasilocal.
+Consider an interacting particle system with finite local state space and finite-range transition rates that are uniformly bounded away from zero, with no forbidden transitions (every local transition, in particular every single-site change, has rate at least $\varepsilon > 0$; this rules out conservation laws). Show that if $\mu$ is a stationary measure for the IPS, then it is necessarily quasilocal.
+
+Without the last condition the claim fails trivially: for symmetric exclusion on $\mathbb{Z}^d$, a mixture of two Bernoulli product measures with different densities is stationary but not quasilocal.
 
 ## Motivation
 
