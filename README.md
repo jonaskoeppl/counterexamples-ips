@@ -7,6 +7,8 @@ A collection of **counterexamples for interacting particle systems (IPS)**, in t
 
 The aim is to sharpen intuition. A good counterexample shows *why* a plausible statement fails, which hypothesis is doing the work, and what the correct statement might be. Entries can be found by humans or produced with the help of AI systems. Either way, what matters is that a human can read the entry, check it, and come away understanding something.
 
+I hope that these examples are also interesting to other researchers, which is why I am collecting them openly on GitHub, and I hope that others will join and add their own (see [Contributing](#contributing)).
+
 A summary of all entries, one paragraph each with links to the full write-ups, is in [`pdf/overview.pdf`](pdf/overview.pdf).
 
 ---
