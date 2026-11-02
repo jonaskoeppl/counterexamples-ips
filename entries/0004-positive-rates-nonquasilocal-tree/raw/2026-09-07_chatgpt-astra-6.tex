@@ -1,0 +1,430 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,array,longtable}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\EE}{\mathsf E}
+\newcommand{\V}{\mathbb V}
+\newcommand{\F}{\mathcal F}
+\newcommand{\nuA}{\nu^{A}}
+\newcommand{\nuB}{\nu^{B}}
+
+\title{A strictly positive finite-range continuous-time IPS with a stationary non-quasilocal measure}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We give an explicit counterexample on a directed regular tree.  The local state
+space is the three-symbol alphabet $\EE=\{0,1,2\}$.  The dynamics is a
+continuous-time nearest-neighbour interacting particle system in which an
+oriented edge updates its ordered pair of endpoint spins according to a fixed
+$9$-state Markov generator.  Every off-diagonal pair transition has a strictly
+positive rate, uniformly bounded away from zero.  Nevertheless the dynamics
+has two distinct full-support Bernoulli product stationary measures.  Their
+nontrivial convex mixture is stationary but has no continuous version of its
+one-site conditional probabilities, and hence is not quasilocal.
+\end{abstract}
+
+\section{The directed tree and the generator}
+
+Let $\mathcal T=(\V,\vec E)$ be the directed binary tree: every vertex $x$ has
+one parent $p(x)$ and exactly two children.  Thus
+\[
+  \vec E=\{(x,p(x)):x\in\V\}.
+\]
+The underlying undirected graph is the $3$-regular tree.  Put
+$\Omega=\EE^{\V}$ with $\EE=\{0,1,2\}$.
+
+For an oriented edge $e=(x,p(x))$, identify its ordered pair state
+$(\eta_x,\eta_{p(x)})\in\EE^2$ with an index in $\{0,\dots,8\}$ via
+\[
+  \iota(a,b)=3a+b.
+\]
+For $i\ne j$, let $q_{ij}$ be the rate in Table~\ref{tab:Q}.  A transition
+$i\to j$, where $i=\iota(a,b)$ and $j=\iota(c,d)$, replaces the pair
+$(\eta_x,\eta_{p(x)})=(a,b)$ by $(c,d)$ and leaves all other spins unchanged.
+The formal generator is
+\begin{equation}
+  (Lf)(\eta)
+  =\sum_{x\in\V}\sum_{j\ne \iota(\eta_x,\eta_{p(x)})}
+  q_{\iota(\eta_x,\eta_{p(x)}),j}
+  \bigl[f(\eta^{x,p(x);j})-f(\eta)\bigr],
+  \label{eq:generator}
+\end{equation}
+for local $f$, where $\eta^{x,p(x);j}$ denotes the configuration obtained by
+putting the pair indexed by $j$ on $(x,p(x))$.
+
+\begin{table}[ht]
+\centering
+\small
+\setlength{\tabcolsep}{3.2pt}
+\renewcommand{\arraystretch}{1.25}
+\caption{Off-diagonal rates $q_{ij}$.  The state order is
+$00,01,02,10,11,12,20,21,22$.  A dash denotes the diagonal.}
+\label{tab:Q}
+\begin{tabular}{c|ccccccccc}
+\toprule
+ &00&01&02&10&11&12&20&21&22\\
+\midrule
+00 &--&$\frac{2767709}{9766950000}$&$\frac{10385390113}{33207630000000}$&$\frac{589477}{1953390000}$&$\frac{62846}{203478125}$&$\frac{1813959}{6511300000}$&$\frac{4589347}{19533900000}$&$\frac{2536387}{9766950000}$&$\frac{204841}{1028100000}$\\
+01 &$\frac{9391756087}{33207630000000}$&--&$\frac{9595487813}{33207630000000}$&$\frac{4516031}{19533900000}$&$\frac{1545599}{6511300000}$&$\frac{1265009}{6511300000}$&$\frac{5577797}{19533900000}$&$\frac{5102083}{19533900000}$&$\frac{305591}{1028100000}$\\
+02 &$\frac{21707821}{74290000000}$&$\frac{13}{50000}$&--&$\frac{13}{50000}$&$\frac{13}{50000}$&$\frac{13}{50000}$&$\frac{13}{50000}$&$\frac{13}{50000}$&$\frac{13}{50000}$\\
+10 &$\frac{13}{50000}$&$\frac{630401}{25000}$&$\frac{13}{50000}$&--&$\frac{13}{50000}$&$\frac{13}{50000}$&$\frac{13}{50000}$&$\frac{17029}{20000}$&$\frac{13}{50000}$\\
+11 &$\frac{13}{50000}$&$\frac{17809}{20000}$&$\frac{13}{50000}$&$\frac{13}{50000}$&--&$\frac{13}{50000}$&$\frac{13}{50000}$&$\frac{13}{50000}$&$\frac{13}{50000}$\\
+12 &$\frac{13}{50000}$&$\frac{13}{50000}$&$\frac{13}{50000}$&$\frac{13}{50000}$&$\frac{13}{50000}$&--&$\frac{13}{50000}$&$\frac{13}{50000}$&$\frac{13}{50000}$\\
+20 &$\frac{216521}{50000}$&$\frac{13}{50000}$&$\frac{1411131}{50000}$&$\frac{13}{50000}$&$\frac{13}{50000}$&$\frac{13}{50000}$&--&$\frac{13}{50000}$&$\frac{13}{50000}$\\
+21 &$\frac{34733}{100000}$&$\frac{13}{50000}$&$\frac{89301}{100000}$&$\frac{433037}{100000}$&$\frac{13}{50000}$&$\frac{5113}{2000}$&$\frac{13}{50000}$&--&$\frac{13}{50000}$\\
+22 &$\frac{13}{50000}$&$\frac{13}{50000}$&$\frac{17039}{100000}$&$\frac{13}{50000}$&$\frac{13}{50000}$&$\frac{733}{100000}$&$\frac{104209}{25000}$&$\frac{13}{50000}$&--\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Every displayed number is positive.  The smallest one is
+\begin{equation}
+ \varepsilon_*:=\frac{1265009}{6511300000}>0.
+ \label{eq:minrate}
+\end{equation}
+Hence every possible change of an ordered nearest-neighbour pair is allowed at
+rate at least $\varepsilon_*$.  In particular there are no forbidden
+single-site changes either: keeping one endpoint fixed while changing the other
+is among the off-diagonal pair transitions.
+
+The row sums are finite; the largest is less than $33$.  Every vertex belongs to
+exactly three oriented edges.  Consequently the dynamics has finite range and
+uniformly bounded local activity.  The standard Harris construction therefore
+defines a Feller interacting particle system with generator
+\eqref{eq:generator}.  No existence issue for the process will be used below
+beyond this elementary bounded-rate construction.
+
+\section{A stationarity criterion on the directed binary tree}
+
+Let $\pi=(\pi_0,\pi_1,\pi_2)$ be a probability vector with every $\pi_a>0$,
+and let
+\[
+  \nu_\pi=\bigotimes_{x\in\V}\pi
+\]
+be the corresponding product measure.  Put
+$w_\pi(a,b)=\pi_a\pi_b$.  For the edge generator $Q=(q_{ij})$, define its
+adjoint defect relative to the pair-product law by
+\begin{equation}
+ h_\pi(a,b)
+ :=\frac{1}{\pi_a\pi_b}
+   \sum_{(c,d)\ne(a,b)}\pi_c\pi_d\,
+     q_{\iota(c,d),\iota(a,b)}
+   -\sum_{(c,d)\ne(a,b)}q_{\iota(a,b),\iota(c,d)}.
+ \label{eq:defh}
+\end{equation}
+
+\begin{lemma}[Tree-divergence criterion]\label{lem:divergence}
+Suppose there exists a function $v:\EE\to\mathbb R$ such that
+\begin{equation}
+  \sum_{a\in\EE}\pi_a v(a)=0
+  \label{eq:vmean0}
+\end{equation}
+and
+\begin{equation}
+  h_\pi(a,b)=v(b)-2v(a)
+  \qquad(a,b\in\EE).
+  \label{eq:divergence}
+\end{equation}
+Then $\nu_\pi$ is stationary for $L$.
+\end{lemma}
+
+\begin{proof}
+Fix a local function $f$, and let $A\Subset\V$ contain its support.  For an
+oriented edge $e=(x,p(x))$, let $K_e$ denote the corresponding summand of the
+generator.  A finite-state change-of-variables computation gives
+\begin{equation}
+ \int K_e f\,d\nu_\pi
+ =\int f(\eta)\,h_\pi(\eta_x,\eta_{p(x)})\,d\nu_\pi(\eta).
+ \label{eq:adjointidentity}
+\end{equation}
+Indeed, for a fixed target pair $(a,b)$, the incoming contribution is
+$\sum_{(c,d)\ne(a,b)}\pi_c\pi_d q_{(c,d),(a,b)}$, while division by the
+pair weight $\pi_a\pi_b$ gives the first term in \eqref{eq:defh}; the outgoing
+part gives the second term.
+
+If neither endpoint of $e$ lies in $A$, then $K_e f=0$.  Thus only finitely many
+edges occur.  Insert \eqref{eq:divergence} into
+\eqref{eq:adjointidentity}.  If $x\in A$ but $p(x)\notin A$, integration over
+the outside parent and \eqref{eq:vmean0} reduce the factor
+$v(\eta_{p(x)})-2v(\eta_x)$ to $-2v(\eta_x)$.  If
+$x\notin A$ but $p(x)\in A$, integration over the outside child reduces it to
+$v(\eta_{p(x)})$.  For an internal edge both terms remain.
+
+We may therefore collect the resulting terms by vertices of $A$.  Every
+$x\in A$ occurs exactly once as the child endpoint of its parent edge, producing
+$-2v(\eta_x)$, and exactly twice as the parent endpoint of its two child edges,
+producing $+v(\eta_x)+v(\eta_x)$.  Hence all terms cancel identically:
+\[
+ \int Lf\,d\nu_\pi
+ =\int f\sum_{x\in A}\bigl[-2v(\eta_x)+2v(\eta_x)\bigr]d\nu_\pi=0.
+\]
+Since this holds for every local $f$, $\nu_\pi$ is stationary.
+\end{proof}
+
+\section{Two distinct product stationary measures}
+
+Define
+\begin{equation}
+  \pi^A=\left(\frac{23}{100},\frac{14}{100},\frac{63}{100}\right),
+  \qquad
+  \pi^B=\left(\frac{19}{100},\frac{31}{100},\frac12\right),
+  \label{eq:pis}
+\end{equation}
+and the two product measures
+\[
+  \nuA:=\nu_{\pi^A},\qquad \nuB:=\nu_{\pi^B}.
+\]
+For $\pi^A$ set
+\begin{equation}
+ v^A=
+ \left(
+ -\frac{45787}{3680},
+ \frac{87917}{100000},
+ \frac{434699}{100000}
+ \right),
+ \label{eq:vA}
+\end{equation}
+and for $\pi^B$ set
+\begin{equation}
+ v^B=
+ \left(
+ -\frac{12245721}{950000},
+ \frac{44491}{50000},
+ \frac{21733}{5000}
+ \right).
+ \label{eq:vB}
+\end{equation}
+Direct exact arithmetic gives
+\begin{equation}
+ \sum_a\pi^A_a v^A(a)=0,
+ \qquad
+ \sum_a\pi^B_a v^B(a)=0.
+ \label{eq:meanszero}
+\end{equation}
+For completeness, the two identities expand to
+\[
+ \frac{23}{100}\left(-\frac{45787}{3680}\right)
+ +\frac{14}{100}\frac{87917}{100000}
+ +\frac{63}{100}\frac{434699}{100000}=0,
+\]
+and
+\[
+ \frac{19}{100}\left(-\frac{12245721}{950000}\right)
+ +\frac{31}{100}\frac{44491}{50000}
+ +\frac12\frac{21733}{5000}=0.
+\]
+
+The rate table was chosen so that, with $h_\pi$ defined by
+\eqref{eq:defh},
+\begin{equation}
+ h_{\pi^A}(a,b)=v^A(b)-2v^A(a),
+ \qquad
+ h_{\pi^B}(a,b)=v^B(b)-2v^B(a)
+ \label{eq:two-balance}
+\end{equation}
+for all nine pairs $(a,b)\in\EE^2$.  There is no limiting or approximate
+statement here: these are identities of rational numbers.  To make the finite
+arithmetic completely inspectable, Tables~\ref{tab:hA} and \ref{tab:hB} list
+the values obtained from the left-hand side of \eqref{eq:defh}; they agree
+entrywise with the right-hand side of \eqref{eq:two-balance}.
+
+\begin{table}[ht]
+\centering
+\caption{Exact values of $h_{\pi^A}(a,b)$ computed from Table~\ref{tab:Q}.}
+\label{tab:hA}
+\begin{tabular}{c|ccc}
+\toprule
+$a\backslash b$&0&1&2\\
+\midrule
+0&$\frac{45787}{3680}$&$\frac{59255841}{2300000}$&$\frac{67231827}{2300000}$\\
+1&$-\frac{32661057}{2300000}$&$-\frac{87917}{100000}$&$\frac{51773}{20000}$\\
+2&$-\frac{48613029}{2300000}$&$-\frac{781481}{100000}$&$-\frac{434699}{100000}$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\caption{Exact values of $h_{\pi^B}(a,b)$ computed from Table~\ref{tab:Q}.}
+\label{tab:hB}
+\begin{tabular}{c|ccc}
+\toprule
+$a\backslash b$&0&1&2\\
+\midrule
+0&$\frac{12245721}{950000}$&$\frac{25336771}{950000}$&$\frac{3577589}{118750}$\\
+1&$-\frac{13936379}{950000}$&$-\frac{44491}{50000}$&$\frac{32087}{12500}$\\
+2&$-\frac{20504261}{950000}$&$-\frac{390169}{50000}$&$-\frac{21733}{5000}$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+For example, the $(a,b)=(0,0)$ entry in the first table equals
+$v^A(0)-2v^A(0)=-v^A(0)=45787/3680$, and the same elementary check applies to
+all remaining entries.  Thus \eqref{eq:meanszero} and
+\eqref{eq:two-balance} verify the hypotheses of Lemma~\ref{lem:divergence}
+for both product laws.
+
+\begin{proposition}\label{prop:twostationary}
+Both $\nuA$ and $\nuB$ are stationary for the same generator $L$.
+\end{proposition}
+
+\begin{proof}
+Apply Lemma~\ref{lem:divergence} first with $(\pi,v)=(\pi^A,v^A)$ and then
+with $(\pi,v)=(\pi^B,v^B)$.
+\end{proof}
+
+\section{The stationary mixture is not quasilocal}
+
+Set
+\begin{equation}
+  \mu:=\frac12\nuA+\frac12\nuB.
+  \label{eq:mixture}
+\end{equation}
+By Proposition~\ref{prop:twostationary} and linearity, $\mu$ is stationary.
+We now prove that it is not quasilocal.
+
+Fix a vertex $o\in\V$ and enumerate $\V\setminus\{o\}$ as
+$x_1,x_2,\dots$.  Define the exterior tail event
+\begin{equation}
+ T_A:=\left\{\eta:
+ \lim_{n\to\infty}\frac1n\sum_{k=1}^n
+ \mathbf 1_{\{\eta_{x_k}=0\}}=\frac{23}{100}
+ \right\}.
+ \label{eq:TA}
+\end{equation}
+The strong law of large numbers gives
+\begin{equation}
+ \nuA(T_A)=1,
+ \qquad
+ \nuB(T_A)=0,
+ \label{eq:tailseparates}
+\end{equation}
+because the corresponding $0$-densities are $23/100$ and $19/100$.
+Since $T_A\in\F_{\V\setminus\{o\}}$, the exterior configuration determines
+which component of the mixture is present, up to a $\mu$-null set.
+
+\begin{lemma}\label{lem:conditional}
+A version of the one-site conditional probability of the event $\{\eta_o=0\}$
+is
+\begin{equation}
+ G(\eta)
+ =\frac{23}{100}\,\mathbf 1_{T_A}(\eta)
+ +\frac{19}{100}\,\mathbf 1_{T_A^c}(\eta).
+ \label{eq:conditional}
+\end{equation}
+In particular,
+\[
+ G=\frac{23}{100}\quad\nuA\text{-a.s.},
+ \qquad
+ G=\frac{19}{100}\quad\nuB\text{-a.s.}
+\]
+\end{lemma}
+
+\begin{proof}
+Let $C\in\F_{\V\setminus\{o\}}$.  Since each component is a product measure,
+$\eta_o$ is independent of $C$ under that component.  Hence
+\[
+ \int_C\mathbf 1_{\{\eta_o=0\}}\,d\mu
+ =\frac12\frac{23}{100}\nuA(C)
+  +\frac12\frac{19}{100}\nuB(C).
+\]
+Using \eqref{eq:tailseparates}, the right-hand side is exactly
+$\int_C G\,d\mu$.  This is the defining property of the conditional
+expectation.
+\end{proof}
+
+\begin{theorem}\label{thm:nonquasi}
+The stationary measure $\mu$ in \eqref{eq:mixture} is not quasilocal.  More
+precisely, the conditional probability
+$\mu(\eta_o=0\mid\F_{\V\setminus\{o\}})$ has no continuous version in the
+product topology.
+\end{theorem}
+
+\begin{proof}
+Assume for contradiction that a continuous function
+$g:\EE^{\V\setminus\{o\}}\to[0,1]$ is a version of the conditional
+probability.  By Lemma~\ref{lem:conditional},
+\begin{equation}
+ g=\frac{23}{100}\quad\nuA\text{-a.s.},
+ \qquad
+ g=\frac{19}{100}\quad\nuB\text{-a.s.}
+ \label{eq:two-values}
+\end{equation}
+(where the product measures are understood on the exterior coordinates).
+
+Both $\nuA$ and $\nuB$ have full topological support because every coordinate
+probability in \eqref{eq:pis} is strictly positive.  Therefore any set of full
+$\nuA$-measure is dense, and any set of full $\nuB$-measure is dense: otherwise
+its complement would contain a nonempty cylinder, but every nonempty cylinder
+has positive product probability.
+
+Thus the set on which $g=23/100$ is dense, and the set on which $g=19/100$ is
+dense.  Continuity forces $g\equiv23/100$ from the first dense set and
+$g\equiv19/100$ from the second.  Since $23/100\ne19/100$, this is impossible.
+Hence no continuous version exists.  Failure of continuity for one one-site
+conditional probability already implies failure of quasilocality.
+\end{proof}
+
+\section{Conclusion and scope}
+
+Combining the preceding results gives the promised counterexample.
+
+\begin{theorem}[Counterexample]\label{thm:main}
+There exists a continuous-time interacting particle system with
+\begin{enumerate}[label=(\roman*)]
+\item finite local state space $\EE=\{0,1,2\}$;
+\item nearest-neighbour, hence finite-range, transition rules;
+\item every off-diagonal local pair transition allowed at a rate at least
+$\varepsilon_*=1265009/6511300000$;
+\item uniformly bounded local total rates;
+\end{enumerate}
+which admits a stationary probability measure $\mu$ that is not quasilocal.
+\end{theorem}
+
+\begin{proof}
+Items (i)--(iv) follow from the construction and Table~\ref{tab:Q}.
+Stationarity of $\mu$ follows from Proposition~\ref{prop:twostationary}, and
+non-quasilocality follows from Theorem~\ref{thm:nonquasi}.
+\end{proof}
+
+\begin{remark}[Single-site versus block-update dynamics]
+The counterexample uses nearest-neighbour \emph{pair updates}.  This is a
+standard finite-range IPS generator, and it satisfies a stronger local
+irreducibility statement than merely allowing every single-site spin change:
+every off-diagonal state change of the entire ordered edge pair is allowed with
+a uniform positive lower bound.  If one imposes the additional restriction that
+\emph{only one site may change at each jump}, the construction above does not
+by itself settle that narrower subclass.
+\end{remark}
+
+\section*{Exact-arithmetic audit}
+
+For ease of independent checking, the proof uses only the following finite
+identities in addition to elementary probability:
+\begin{enumerate}
+\item all $72$ off-diagonal entries in Table~\ref{tab:Q} are positive, with
+minimum $1265009/6511300000$;
+\item the two weighted means in \eqref{eq:meanszero} vanish;
+\item substituting Table~\ref{tab:Q} into \eqref{eq:defh} yields exactly the
+nine rational numbers in Table~\ref{tab:hA} for $\pi^A$ and exactly the nine
+rational numbers in Table~\ref{tab:hB} for $\pi^B$;
+\item each entry of Table~\ref{tab:hA} equals $v^A(b)-2v^A(a)$, and each entry
+of Table~\ref{tab:hB} equals $v^B(b)-2v^B(a)$.
+\end{enumerate}
+These are finite rational equalities; no approximation or computer-assisted
+inequality is part of the argument.
+
+\end{document}

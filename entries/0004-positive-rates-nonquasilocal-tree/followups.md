@@ -1,0 +1,10 @@
+# Positive rates do not force quasilocality (on a tree) — follow-up questions
+
+1. **$\mathbb{Z}^d$.** Is every stationary measure of a positive-rate, finite-range IPS on $\mathbb{Z}^d$ quasilocal? — `open`
+2. **Mixtures on $\mathbb{Z}^d$.** On $\mathbb{Z}^d$ the cheapest route to a counterexample is a mixture of two stationary measures that are not consistent with a common quasilocal specification. Positive-rate systems with several stationary measures exist (Toom's model in $d = 2$, Gács in $d = 1$). Is the symmetric mixture of two extremal stationary measures of such a system quasilocal? — `open`
+3. **Two product measures on $\mathbb{Z}^d$.** Can a translation-invariant, finite-range, positive-rate IPS on $\mathbb{Z}^d$ have two distinct stationary product measures? For nearest-neighbour pair updates on $\mathbb{Z}$, no (proposition in `digest.md`). For $\mathbb{Z}^d$ this is expected to follow from the relative-entropy method of Jahnel–Külske (2019). — `d = 1: proved in digest.md (unchecked)`; `d ≥ 2: expected` (to be checked)
+4. **Single-site updates on the tree.** Is there a counterexample on the tree where only one site changes at each jump (a spin system), with all single-site changes at rate $\ge \varepsilon$? The source leaves this open. — `open`
+5. **Two symbols.** Does the construction work with local state space $\{0,1\}$? — `open`
+6. **Full symmetry.** The rates depend on the orientation of the edges towards a fixed end of the tree. For edge updates that do not see the orientation, each vertex lies in three equivalent edges and the bookkeeping in Lemma 2 cannot cancel. Is there a counterexample on $T_3$ that is invariant under all automorphisms of the tree? — `open`
+7. **Extremal stationary measures.** Here the non-quasilocal measure is a mixture, and its two extremal components are product measures. Is every *extremal* stationary measure of a positive-rate IPS quasilocal (on trees, on $\mathbb{Z}^d$)? — `open`
+8. **Which geometry?** Is non-amenability the right dividing line? For instance, what happens on amenable graphs with exponential growth (e.g. lamplighter graphs)? — `open`

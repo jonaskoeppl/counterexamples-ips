@@ -2,7 +2,7 @@
 \usepackage[margin=2.3cm,top=2cm]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage{lmodern,amsmath,amssymb,xcolor}
+\usepackage{lmodern,amsmath,amssymb,xcolor,mathrsfs}
 \usepackage[colorlinks=true,urlcolor=blue!60!black,linkcolor=blue!60!black]{hyperref}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\repo}{https://github.com/jonaskoeppl/counterexamples-ips}
@@ -32,5 +32,9 @@ For exchange dynamics on a connected graph of bounded degree, is every stationar
 \entry{0003}{Directed noise can destroy ergodicity}{plausible}
 Bérard, Dembin and Marêché (arXiv:2510.11424) prove that a monotone ergodic system with $\mathbf 0$ absorbing becomes exponentially ergodic when each site is additionally set to $0$ at rate $\varepsilon$. Can the absorbing state be dropped? No, not even for plain ergodicity. For the Ising-type dynamics with constant rate $+1\to-1$ and rate $(1+\varepsilon)e^{2\beta S_x}$ for $-1\to+1$ (an external field $h=\frac12\log(1+\varepsilon)$), adding the noise is the same as removing the field. For $d\ge2$ and $\beta>\beta_c$ the original dynamics is ergodic, while the perturbed one has both the plus and the minus Gibbs state as reversible measures.
 \entrylinks{0003-directed-noise-cancels-ising-field}
+
+\entry{0004}{Positive rates do not force stationary measures to be quasilocal (on a tree)}{plausible}
+Consider an interacting particle system with finite local state space and finite-range rates that are uniformly bounded away from zero. Is every stationary measure quasilocal? The question is inspired by elliptic regularity: stationary measures solve $\mathscr L^*\mu=0$, positive rates play the role of ellipticity and quasilocality that of regularity. On $\Z^d$ it is open. On the $3$-regular tree the answer is no: an explicit nearest-neighbour pair-update dynamics with three states and all rates at least $1.9\cdot10^{-4}$ has two stationary product measures with different densities, and their mixture is stationary but its conditional probabilities depend on the tail, so it is not quasilocal. Branching is essential: on $\Z$ two such product measures cannot coexist. Found by ChatGPT Astra-6.
+\entrylinks{0004-positive-rates-nonquasilocal-tree}
 
 \end{document}

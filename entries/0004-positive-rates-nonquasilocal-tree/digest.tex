@@ -1,0 +1,93 @@
+\documentclass[11pt]{article}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,booktabs,mathrsfs,graphicx}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\cL}{\mathscr{L}}
+\title{Positive rates do not force stationary measures\\ to be quasilocal (on a tree)}
+\author{counterexamples-ips, entry 0004}
+\date{Status: \emph{plausible} (finite identities machine-checked; not yet checked by a human)\\[2pt]\small Counterexample: ChatGPT Astra-6, 7 September 2026 (raw output in \texttt{raw/})\\ Digest: Claude (Opus 5.5), 2 November 2026}
+\begin{document}
+\maketitle
+
+\paragraph{Question.} Consider an interacting particle system with finite local state space and finite-range transition rates that are uniformly bounded away from zero. Is every stationary measure $\mu$ quasilocal? The question is inspired by elliptic regularity: stationary measures solve $\cL^*\mu=0$, positive rates play the role of uniform ellipticity, and quasilocality (continuity of conditional probabilities in the product topology) the role of regularity. On $\Z^d$ the question is open. On the $3$-regular tree the answer is \emph{no}.
+
+\paragraph{Setting.} In the \emph{directed binary tree} every vertex $x$ has one parent $p(x)$ and two children; the undirected graph is the $3$-regular tree, oriented towards a fixed end. Local state space $E=\{0,1,2\}$. On each oriented edge $(x,p(x))$ the ordered pair $(\eta_x,\eta_{p(x)})$ jumps according to one fixed $9$-state generator $Q=(q_{ij})$ with the rates of Table~\ref{tab:Q}, independently over edges. All $72$ rates are positive, the smallest is $\varepsilon_*=1265009/6511300000\approx1.9\cdot10^{-4}$, and all row sums are below $33$.
+
+\begin{table}[h]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{2.1}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{c|ccccccccc}
+\toprule
+ &00&01&02&10&11&12&20&21&22\\
+\midrule
+00 &--&$\frac{2767709}{9766950000}$&$\frac{10385390113}{33207630000000}$&$\frac{589477}{1953390000}$&$\frac{62846}{203478125}$&$\frac{1813959}{6511300000}$&$\frac{4589347}{19533900000}$&$\frac{2536387}{9766950000}$&$\frac{204841}{1028100000}$\\
+01 &$\frac{9391756087}{33207630000000}$&--&$\frac{9595487813}{33207630000000}$&$\frac{4516031}{19533900000}$&$\frac{1545599}{6511300000}$&$\frac{1265009}{6511300000}$&$\frac{5577797}{19533900000}$&$\frac{5102083}{19533900000}$&$\frac{305591}{1028100000}$\\
+02 &$\frac{21707821}{74290000000}$&$\frac{13}{50000}$&--&$\frac{13}{50000}$&$\frac{13}{50000}$&$\frac{13}{50000}$&$\frac{13}{50000}$&$\frac{13}{50000}$&$\frac{13}{50000}$\\
+10 &$\frac{13}{50000}$&$\frac{630401}{25000}$&$\frac{13}{50000}$&--&$\frac{13}{50000}$&$\frac{13}{50000}$&$\frac{13}{50000}$&$\frac{17029}{20000}$&$\frac{13}{50000}$\\
+11 &$\frac{13}{50000}$&$\frac{17809}{20000}$&$\frac{13}{50000}$&$\frac{13}{50000}$&--&$\frac{13}{50000}$&$\frac{13}{50000}$&$\frac{13}{50000}$&$\frac{13}{50000}$\\
+12 &$\frac{13}{50000}$&$\frac{13}{50000}$&$\frac{13}{50000}$&$\frac{13}{50000}$&$\frac{13}{50000}$&--&$\frac{13}{50000}$&$\frac{13}{50000}$&$\frac{13}{50000}$\\
+20 &$\frac{216521}{50000}$&$\frac{13}{50000}$&$\frac{1411131}{50000}$&$\frac{13}{50000}$&$\frac{13}{50000}$&$\frac{13}{50000}$&--&$\frac{13}{50000}$&$\frac{13}{50000}$\\
+21 &$\frac{34733}{100000}$&$\frac{13}{50000}$&$\frac{89301}{100000}$&$\frac{433037}{100000}$&$\frac{13}{50000}$&$\frac{5113}{2000}$&$\frac{13}{50000}$&--&$\frac{13}{50000}$\\
+22 &$\frac{13}{50000}$&$\frac{13}{50000}$&$\frac{17039}{100000}$&$\frac{13}{50000}$&$\frac{13}{50000}$&$\frac{733}{100000}$&$\frac{104209}{25000}$&$\frac{13}{50000}$&--\\
+\bottomrule
+\end{tabular}}
+\caption{Off-diagonal rates $q_{ij}$; rows: from, columns: to; pair states ordered $00,01,\dots,22$.}
+\label{tab:Q}
+\end{table}
+
+\begin{theorem}[ChatGPT Astra-6]
+Let $\pi^A=(\frac{23}{100},\frac{14}{100},\frac{63}{100})$ and $\pi^B=(\frac{19}{100},\frac{31}{100},\frac12)$. The product measures $\nu^A=\bigotimes\pi^A$ and $\nu^B=\bigotimes\pi^B$ are both stationary. Hence $\mu=\frac12\nu^A+\frac12\nu^B$ is stationary, and $\mu(\eta_o=0\mid\mathcal F_{\mathbb V\setminus\{o\}})$ has no continuous version: $\mu$ is not quasilocal.
+\end{theorem}
+
+\begin{lemma}[adjoint identity]\label{lem:adj}
+For a full-support product measure $\nu_\pi$ and the generator part $K_e$ of an edge $e=(x,p(x))$,
+$\int K_ef\,d\nu_\pi=\int f\,h_\pi(\eta_x,\eta_{p(x)})\,d\nu_\pi$, where
+\[
+h_\pi(a,b)=\frac1{\pi_a\pi_b}\sum_{(c,d)\ne(a,b)}\pi_c\pi_d\,q_{(c,d),(a,b)}-\sum_{(c,d)\ne(a,b)}q_{(a,b),(c,d)} .
+\]
+\end{lemma}
+
+\begin{lemma}[tree-divergence criterion]
+If $\sum_a\pi_av(a)=0$ and $h_\pi(a,b)=v(b)-2v(a)$ for all $a,b$, then $\nu_\pi$ is stationary.
+\end{lemma}
+\begin{proof}
+For $f$ local with support in a finite $A$, only edges touching $A$ contribute. Integrating out an endpoint outside $A$ kills its term (mean zero). Each $y\in A$ is the child of one edge (term $-2v(\eta_y)$) and the parent of two edges ($+v(\eta_y)$ each), so $\int\cL f\,d\nu_\pi=0$. Local functions form a core (Liggett 1985, Ch.~I).
+\end{proof}
+
+\paragraph{Finite identities.} With $v^A=(-\frac{45787}{3680},\frac{87917}{100000},\frac{434699}{100000})$ and $v^B=(-\frac{12245721}{950000},\frac{44491}{50000},\frac{21733}{5000})$ the two mean-zero conditions and all $18$ balance identities hold exactly (checked in exact rational arithmetic by \texttt{verify.py}; an independent brute-force check of $\int\cL f\,d\nu=0$ is \texttt{check\_stationarity.py}; both in the entry's \texttt{code} folder).
+
+\paragraph{Not quasilocal.} The density of $0$s outside $o$ is $\frac{23}{100}$ under $\nu^A$ and $\frac{19}{100}$ under $\nu^B$, so a tail event separates the components and $\mu(\eta_o=0\mid\mathcal F_{\mathbb V\setminus\{o\}})$ equals $\frac{23}{100}$ $\nu^A$-a.s.\ and $\frac{19}{100}$ $\nu^B$-a.s. Both sets are dense (full support), so a continuous version would have to be constant equal to both values.
+
+\paragraph{Why a tree?}
+\begin{proposition}[added in this digest]
+For a translation-invariant nearest-neighbour pair-update IPS on $\Z$ with irreducible edge generator $Q$ on $E^2$, at most one full-support product measure is stationary.
+\end{proposition}
+\begin{proof}
+(i) On $\Z$ every vertex has one parent and one child; testing Lemma~\ref{lem:adj} on intervals shows that $\nu_\pi$ is stationary iff $h_\pi(a,b)=v(b)-v(a)$ for some $v$.
+(ii) Let $\nu_\pi,\nu_{\pi'}$ be stationary, $w=\pi\otimes\pi$, $w'=\pi'\otimes\pi'$, $r=w'/w$. For the pair chain,
+\[
+\sum_s(w'Q)(s)\log r(s)-\sum_s r(s)(wQ)(s)=-\sum_{s\ne s'}w(s')Q(s',s)\Bigl[r(s)-r(s')-r(s')\log\tfrac{r(s)}{r(s')}\Bigr]\le0,
+\]
+with equality only if $r$ is constant. By (i) and since $\log r(a,b)=\ell(a)+\ell(b)$, $\ell=\log(\pi'/\pi)$, with $a,b$ i.i.d.\ under $w'$, the left-hand side vanishes by symmetry. So $\pi'=\pi$.
+\end{proof}
+On the tree the weights are $(-2,+1)$ and the same computation gives $-\mathbb E_{\pi'}[v'\ell]+\mathbb E_{\pi'}[v]$, which need not vanish. A linear-programming experiment (\texttt{lp\_tree\_vs\_line.py} in the \texttt{code} folder) finds positive rates making two random product laws balanced in $199$ of $200$ cases on the tree and in none on the line.
+
+\paragraph{Mechanism.} Branching lets the defect $v(b)-2v(a)$ sum to zero over finite sets without being a coboundary; on $\Z^d$ boundaries are negligible and relative-entropy arguments (Holley; Jahnel--K\"ulske) pin down translation-invariant stationary measures, but on the non-amenable tree they break down. Two stationary product measures with different densities then coexist, and their mixture remembers in its tail which one is present. Positive rates give local irreducibility (``ellipticity''), but quasilocality is about the influence of infinity, which is governed by the geometry.
+
+\paragraph{Which hypothesis breaks; what is not shown.} The graph is a tree; the rates use an orientation towards a fixed end; both endpoints of an edge may change in one jump (single-site updates are not covered); the non-quasilocal measure is a mixture of two product measures. The question on $\Z^d$ remains open. Follow-up questions: see \texttt{followups.md} in the entry folder.
+
+\begin{thebibliography}{9}\small
+\bibitem{H71} R.~Holley, Free energy in a Markovian model of a lattice spin system, \emph{Comm.\ Math.\ Phys.}\ 23 (1971).
+\bibitem{JK19} B.~Jahnel, C.~K\"ulske, Attractor properties for irreversible and reversible interacting particle systems, \emph{Comm.\ Math.\ Phys.}\ 366 (2019).
+\bibitem{L85} T.~M.~Liggett, \emph{Interacting Particle Systems}, Springer, 1985.
+\bibitem{G88} H.-O.~Georgii, \emph{Gibbs Measures and Phase Transitions}, de Gruyter, 1988.
+\end{thebibliography}
+\end{document}
